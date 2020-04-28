@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.App {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.left {
+  text-align: center;
+  flex-basis: 0;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.right {
+  text-align: center;
+  border-left: 3px solid black;
+  flex-basis: 0;
+  flex-grow: 1;
+  overflow: scroll;
+  height: 100%;
+}
+
+.info {
+  display: none;
+}
+.show {
+  display: unset;
+}
+
+.item {
+  padding: 0 0 2em 0;
+}
+
+.liketitle {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.movieresults {
+  margin: 0;
+  padding: 0 4em;
+  max-height: 89%;
+  overflow: scroll;
+  text-align: left;
+}
+
+.movieresults .result {
+  display: flex;
+  justify-content: space-between;
+}
+
+li {
+  padding-bottom: 5px;
+}
+
+.liked li {
+  padding: 0;
+}
+
+.liked button {
+  margin-bottom: 1em;
+}
+
+button,
+input {
+  background-color: limegreen;
+  font-size: 12px;
+  padding: 0.5em 2em;
+  border-radius: 1em;
+  border-style: none;
+}
+
+input[type="text"] {
+  background-color: lightgray;
+}
+
+input,
+button {
+  margin: 0 0.5em;
+}
+
+input[type="text"]:focus {
+  background-color: rgb(240, 240, 240);
+}
+
+input[type="submit"]:active,
+button:active {
+  background-color: green;
+}
+
+input:focus,
+button:focus {
+  outline: none;
+}
+
+.msg,
+a {
+  color: green;
+}
+h1 {
+  margin: 0;
+  padding-top: 20px;
+}
+.movieform {
+  padding-top: 20px;
+}
+
+input[type="text"].error {
+  background-color: orange;
+}
+
+.loadmore {
+  line-height: 2em;
+}
