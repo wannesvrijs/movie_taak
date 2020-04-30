@@ -4,10 +4,10 @@ import axios from "axios";
 /* INITIAL STATE */
 /*****************/
 const initialState = {
-  error: false,
+  error: "",
   loading: false,
-  data: [],
   searchStr: "",
+  data: [],
 };
 
 /*********/

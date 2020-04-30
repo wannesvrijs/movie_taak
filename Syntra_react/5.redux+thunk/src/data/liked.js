@@ -5,8 +5,9 @@ import axios from "axios";
 /*****************/
 
 const initialState = {
-  error: false,
+  error: "",
   loading: false,
+  id: [],
   data: [],
 };
 
@@ -23,7 +24,7 @@ const ERRORLIKED = "ERRORLIKED";
 /* ACTION CREATORS */
 /*******************/
 export const getLiked = (imdbID) => (dispatch) => {
-  dispatch(fetchLiked());
+  dispatch(fetchLiked(imdbID));
   axios
     .get(process.env.REACT_APP_ENDPOINTS + "&i=" + imdbID)
     .then((result) => {
@@ -32,8 +33,9 @@ export const getLiked = (imdbID) => (dispatch) => {
     .catch((error) => errorLiked("api Failed loading"));
 };
 
-export const fetchLiked = () => ({
+export const fetchLiked = (imdbID) => ({
   type: FETCHLIKED,
+  payload: imdbID,
 });
 
 export const setLiked = (data) => ({
@@ -59,6 +61,7 @@ export default (state = initialState, { type, payload }) => {
     case FETCHLIKED:
       return {
         ...state,
+        id: [...state.id, payload],
         loading: true,
         error: "",
       };
@@ -77,6 +80,7 @@ export default (state = initialState, { type, payload }) => {
     case REMOVELIKED:
       return {
         ...state,
+        id: state.id.filter((id) => id !== payload),
         data: state.data.filter((movie) => movie.imdbID !== payload),
       };
     default:

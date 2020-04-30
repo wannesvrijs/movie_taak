@@ -10,10 +10,6 @@ export default () => {
     return liked.data.some((like) => like.imdbID === e.target.dataset.imdbid);
   };
 
-  const IsLikedID = (id) => {
-    return liked.data.some((like) => like.imdbID === id);
-  };
-
   const likeHandler = (e) => {
     const isLiked = IsLikedE(e);
     if (!isLiked) {
@@ -32,7 +28,9 @@ export default () => {
             <li className="result" key={movie.imdbID}>
               {movie.Title}
               <button data-imdbid={movie.imdbID} onClick={likeHandler}>
-                Like
+                {liked.id.some((like) => movie.imdbID === like)
+                  ? "burk"
+                  : "like"}
               </button>
             </li>
           ))}
