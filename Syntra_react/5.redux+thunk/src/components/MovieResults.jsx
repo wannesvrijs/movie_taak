@@ -31,16 +31,13 @@ export default () => {
           movies.data.map((movie) => (
             <li className="result" key={movie.imdbID}>
               {movie.Title}
-              <IconButton
-                id={movie.imdbID}
-                onClick={(e) => likeHandler(e, movie.imdbID)}
-              >
+              <a onClick={(e) => likeHandler(e, movie.imdbID)}>
                 {liked.id.some((like) => movie.imdbID === like) ? (
                   <FavoriteIcon />
                 ) : (
                   <FavoriteBorderIcon />
                 )}
-              </IconButton>
+              </a>
             </li>
           ))}
       </ul>

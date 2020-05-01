@@ -16,6 +16,7 @@ export default () => {
   };
 
   const submitHandler = (e) => {
+    setPage(1);
     e.preventDefault();
     searchStr === "" ? setError(true) : setError(false);
     if (!error) {
